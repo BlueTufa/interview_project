@@ -4,7 +4,7 @@ class ExerciseController < ApplicationController
   end
 
   def create
-
+    json_response({error_key: 'An exercise cannot be created'}, :not_implemented)
   end
 
   def show
