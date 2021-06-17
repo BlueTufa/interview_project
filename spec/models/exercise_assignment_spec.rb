@@ -17,7 +17,7 @@ require 'rails_helper'
 
 RSpec.describe ExerciseAssignment, type: :model do
   describe '#exercise' do
-    it 'loads the correct exercise based on the assigned id' do
+    it 'has a happy path' do
       member = FactoryBot.create(:member)
       exercise_id = Exercise.ids.sample
 

@@ -4,14 +4,12 @@ class ExerciseController < ApplicationController
   end
 
   def create
-
+    json_response({error_key: 'An exercise cannot be created'}, :not_implemented)
   end
 
   def show
-    id = params[:id]
-    puts id # TODO: need a suitable logger here
     begin
-      json_response(Exercise.find(id))
+      json_response(Exercise.find(params[:id]))
     rescue => e
       puts "ERROR: item #{id} not found.  #{e}"
       json_response({error_key: 'OBJECT_NOT_FOUND'}, :not_found)
