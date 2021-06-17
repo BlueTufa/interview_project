@@ -9,7 +9,7 @@ class ExerciseController < ApplicationController
 
   def show
     begin
-      json_response(Exercise.find(params.permit(:id)))
+      json_response(Exercise.find(params[:id]))
     rescue => e
       puts "ERROR: item #{id} not found.  #{e}"
       json_response({error_key: 'OBJECT_NOT_FOUND'}, :not_found)
