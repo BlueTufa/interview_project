@@ -8,10 +8,8 @@ class ExerciseController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    puts id # TODO: need a suitable logger here
     begin
-      json_response(Exercise.find(id))
+      json_response(Exercise.find(params.permit(:id)))
     rescue => e
       puts "ERROR: item #{id} not found.  #{e}"
       json_response({error_key: 'OBJECT_NOT_FOUND'}, :not_found)

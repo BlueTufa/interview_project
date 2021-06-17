@@ -5,3 +5,5 @@ Style/Documentation:
 Metrics/MethodLength:
   Enabled: true
   Max: 30
+Style/ClassLength:
+  Max: 240

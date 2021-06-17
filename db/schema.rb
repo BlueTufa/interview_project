@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_015120) do
+ActiveRecord::Schema.define(version: 2021_06_17_013625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "assignment_schedule_histories", force: :cascade do |t|
+    t.bigint "exercise_schedule_id"
+    t.bigint "exercise_assignment_id"
+    t.datetime "assigned_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["exercise_assignment_id"], name: "index_assignment_schedule_histories_on_exercise_assignment_id"
+    t.index ["exercise_schedule_id"], name: "index_assignment_schedule_histories_on_exercise_schedule_id"
+  end
 
   create_table "exercise_assignments", force: :cascade do |t|
     t.bigint "member_id"
@@ -23,6 +33,14 @@ ActiveRecord::Schema.define(version: 2021_06_15_015120) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_exercise_assignments_on_member_id"
+  end
+
+  create_table "exercise_schedules", force: :cascade do |t|
+    t.string "exercise_id"
+    t.bigint "member_id"
+    t.string "schedule"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "members", force: :cascade do |t|

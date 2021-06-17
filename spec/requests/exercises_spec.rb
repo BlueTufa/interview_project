@@ -12,7 +12,10 @@ RSpec.describe "Exercise", type: :request do
 
     it "returns one" do
       get exercises_path('welcome_to_brightline')
+      # get exercises_path(id: "welcome_to_brightline")
       expect(response).to have_http_status(:ok)
+      # TODO: figure this out.  check return value
+      # expect(response).to contain_exactly(1)
     end
 
     it "returns none" do
@@ -20,9 +23,11 @@ RSpec.describe "Exercise", type: :request do
       expect(response).to have_http_status(:not_found)
     end
 
-    it "create fails" do
-      post exercises_path
-      expect(response).to have_http_status(:not_implemented)
+    context "given invalid parameters" do
+      it "fails" do
+        post exercises_path
+        expect(response).to have_http_status(:not_implemented)
+      end
     end
   end
 end

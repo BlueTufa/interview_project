@@ -91,6 +91,7 @@ GEM
       binding.repl (~> 3.0)
       paint (>= 0.9, < 3.0)
     diff-lcs (1.4.4)
+    dotenv (2.7.6)
     erubi (1.10.0)
     every_day_irb (2.1.1)
       cd (~> 1.0)
@@ -155,6 +156,8 @@ GEM
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     nokogiri (1.11.3-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.11.3-x86_64-linux)
       racc (~> 1.4)
     object_shadow (1.1.1)
     ori (0.1.0)
@@ -258,6 +261,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara
+  dotenv
   factory_bot_rails
   faker
   irbtools
